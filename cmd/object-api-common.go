@@ -262,7 +262,7 @@ func listObjectsNonSlash(ctx context.Context, bucket, prefix, marker, delimiter 
 				// ignore quorum error as it might be an entry from an outdated disk.
 				if IsErrIgnored(err, []error{
 					errFileNotFound,
-					errXLReadQuorum,
+					errERReadQuorum,
 				}...) {
 					continue
 				}
@@ -455,7 +455,7 @@ func listObjects(ctx context.Context, obj ObjectLayer, bucket, prefix, marker, d
 			// ignore quorum error as it might be an entry from an outdated disk.
 			if IsErrIgnored(err, []error{
 				errFileNotFound,
-				errXLReadQuorum,
+				errERReadQuorum,
 			}...) {
 				continue
 			}
